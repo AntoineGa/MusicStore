@@ -1,0 +1,16 @@
+﻿@model IEnumerable<Album>
+
+<li class="dropdown">
+    <p>Recommandation</p>
+    <ul class="dropdown-menu">
+        @foreach (var album in Model)
+        {
+            <li>
+                <a asp-controller="Store" asp-action="Browse" asp-route-Genre="@album.Genre.Name">
+                    @album.Title
+            </a>
+        </li>
+        }
+        <li class="divider"></li>
+    </ul>
+</li>
