@@ -21,7 +21,7 @@ namespace MusicStore.Controllers
         // GET: /Store/
         public async Task<IActionResult> Index()
         {
-            var albums = await DbContext.Albums.ToListAsync();
+            var albums = await DbContext.Albums.OrderByDescending(a => a.Price).Take(5).ToListAsync();
 
             return View(albums);
         }
